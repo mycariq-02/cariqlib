@@ -39,11 +39,11 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-//                from components.release
+                from components.findByName('release')
 
-                groupId = 'com.github.philipplackner'
-                artifactId = 'image-preview-compose'
-                version = '1.0.1'
+                groupId = 'com.github.mycariq-02'
+                artifactId = 'cariqlib'
+                version = '1.0.4'
             }
         }
     }
