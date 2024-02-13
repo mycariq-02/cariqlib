@@ -7,8 +7,6 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cariqlib.CariqUtil;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,12 +15,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
-
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                CariqUtil.printLog("Library : ", "This is accessed from Library");
+//                CariqUtil.printLog("Library : ", "This is accessed from Library");
             }
         });
     }
