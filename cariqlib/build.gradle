@@ -56,16 +56,15 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
 }
 
-/*task sourcesJar(type: Jar) {
+task sourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
 }
 
-task javadoc(type: Javadoc) {
+/*task javadoc(type: Javadoc) {
     options.charSet = 'UTF-8'
     failOnError false
     source = files('/home/sneha/StudioProjects/CarIQLibrary/cariqlib')
-//    source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
@@ -75,30 +74,9 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }*/
 
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set('sources')
-    archivesBaseName ="singleAdapter-1.1.0"
-}
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    android.libraryVariants.all { variant ->
-        if (variant.name == 'release') {
-            owner.classpath += variant.javaCompileProvider.get().classpath
-        }
-    }
-    options.memberLevel = JavadocMemberLevel.PRIVATE
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set('javadoc')
-    archivesBaseName = "singleAdapter-1.1.0"
-    from javadoc.destinationDir
-}
-
 artifacts {
     archives sourcesJar
-    archives javadocJar
+//    archives javadocJar
 }
 
 afterEvaluate {
