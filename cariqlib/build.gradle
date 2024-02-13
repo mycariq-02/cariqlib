@@ -1,5 +1,4 @@
 buildscript {
-
     repositories {
         google()
         mavenCentral()
@@ -56,12 +55,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
 }
 
+
 task sourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
 }
-
-/*task javadoc(type: Javadoc) {
+/*
+task javadoc(type: Javadoc) {
     options.charSet = 'UTF-8'
     failOnError false
     source = files('/home/sneha/StudioProjects/CarIQLibrary/cariqlib')
@@ -86,11 +86,18 @@ afterEvaluate {
                 from components.findByName('release')
                 artifactId = 'cariqlib'
                 groupId = 'com.github.mycariq-02'
-                version = '1.0.5'
-                /*pom {
-                    name.set('cariqlib')
-                }*/
+                version = '1.0.6'
+                artifact("$buildDir/outputs/aar/cariqlib-release.aar")
             }
         }
+
+        /*repositories{
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/mycariq-02")
+            credentials{
+                username = "cariq-02"
+                password = "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"
+            }
+        }*/
     }
 }
